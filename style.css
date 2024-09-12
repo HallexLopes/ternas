@@ -14,6 +14,8 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    max-width: 500px;
+    width: 100%;
 }
 
 .input-group {
@@ -41,9 +43,14 @@ button:hover {
     background-color: #0056b3;
 }
 
+#result-container {
+    margin-top: 20px;
+    text-align: left;
+}
+
 #result {
     font-size: 18px;
     font-weight: bold;
     color: #333;
-    margin-top: 15px;
+    margin-top: 10px;
 }
