@@ -1,56 +1,33 @@
-const input1 = document.getElementById("side1");
-const input2 = document.getElementById("side2");
-const input3 = document.getElementById("side3");
-const btn = document.getElementById("btn");
-const result = document.getElementById("result");
-const cleanBtn = document.getElementById("clean_btn");
-
-btn.addEventListener("click", calculateResult);
-cleanBtn.addEventListener("click", cleanAllFields);
+document.querySelectorAll('.side-input').forEach(input => {
+    input.addEventListener('input', calculateResult);
+});
 
 function calculateResult() {
-    // Cleaning result paragraph
-    result.innerText = "";
+    // Get values from inputs
+    const side1 = Number(document.getElementById('side1').value);
+    const side2 = Number(document.getElementById('side2').value);
+    const side3 = Number(document.getElementById('side3').value);
 
-    // Getting values from inputs
-    const a = Number(input1.value);
-    const b = Number(input2.value);
-    const c = Number(input3.value);
+    // Clean result
+    const result = document.getElementById('result');
+    result.innerText = '';
 
-    // Validate inputs
-    if (!Number.isInteger(a) || !Number.isInteger(b) || !Number.isInteger(c)) {
-        alert("Por favor, introduzca solo valores enteros.");
-        return;
-    }
-    if (a <= 0 || b <= 0 || c <= 0) {
-        alert("Por favor, introduzca solo valores mayores a cero (0).");
-        return;
-    }
-    if (a + b <= c || a + c <= b || b + c <= a) {
-        alert("Los datos introducidos no corresponden a los lados de un triángulo, ya que no cumplen con el Teorema de Desigualdad Triangular.");
+    // Check if all inputs are valid numbers
+    if (isNaN(side1) || isNaN(side2) || isNaN(side3)) {
+        result.innerText = 'Por favor, insira valores válidos.';
         return;
     }
 
-    // Create and sort the array
-    const sides = [a, b, c].sort((x, y) => x - y);
+    // Create and sort array
+    const sides = [side1, side2, side3].sort((a, b) => a - b);
 
-    // Calculate squared values
-    const [side1, side2, hypotenuse] = sides;
-    const side1Sq = side1 * side1;
-    const side2Sq = side2 * side2;
-    const hypotenuseSq = hypotenuse * hypotenuse;
+    // Destructure sides into a, b, and c
+    const [a, b, c] = sides;
 
-    // Determine if it forms a Pythagorean triple
-    if (side1Sq + side2Sq === hypotenuseSq) {
-        result.innerText = `Los valores ${a}, ${b} y ${c} forman una terna pitagórica. El triángulo es rectángulo, sus catetos miden ${side1} y ${side2} y su hipotenusa mide ${hypotenuse}.`;
+    // Validate if they form a Pythagorean triple
+    if (a > 0 && b > 0 && c > 0 && a ** 2 + b ** 2 === c ** 2) {
+        result.innerText = `Os valores ${side1}, ${side2} e ${side3} formam uma terna pitagórica. O triângulo é retângulo, com catetos ${a} e ${b}, e hipotenusa ${c}.`;
     } else {
-        result.innerText = `Los valores ${a}, ${b} y ${c} no forman una terna pitagórica. El triángulo no es rectángulo.`;
+        result.innerText = `Os valores ${side1}, ${side2} e ${side3} não formam uma terna pitagórica. O triângulo não é retângulo.`;
     }
-}
-
-function cleanAllFields() {
-    input1.value = "";
-    input2.value = "";
-    input3.value = "";
-    result.innerText = "";
 }
