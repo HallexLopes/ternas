@@ -1,0 +1,17 @@
+header {
+    display: grid; /* Certifique-se de que header é um contêiner de grid */
+    grid-template-columns: 1fr 2fr 1fr;
+    padding: 2rem; /* Ativado conforme necessidade */
+}
+
+.logo-container {
+    padding-left: 2rem;
+}
+
+header img {
+    width: 20rem; /* Verifique a responsividade */
+}
+
+.title {
+    text-transform: uppercase;
+}

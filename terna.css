@@ -1,0 +1,191 @@
+/* Estilos globais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%; /* Define base font-size de 10px */
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+:root {
+    --standar-font-size: 1.4rem;
+    --small-font-size: 1.2rem;
+    --large-font-size: 1.8rem;
+    --very_large-font-size: 2.2rem;
+
+    --input-background: #e5e7e9;
+    --white: #ffffff;
+    --section-border: #1f618d;
+    --dark-red: #943126;
+    --main-background: #3952de;
+    --buttons-background: #f7be44;
+}
+
+/* Header */
+header {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    font-size: var(--standar-font-size);
+    background-color: var(--main-background);
+    color: var(--white);
+    /*border-bottom: 0.2rem solid var(--section-border);*/
+}
+
+header img {
+    width: 12rem;
+    max-width: 100%;
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+.logo-container {
+    text-align: start;
+}
+
+/* Main */
+main {
+    width: 100%;
+    font-size: var(--standar-font-size);
+    background-color: var(--main-background);
+    padding: 4rem 1rem;
+}
+
+/* Títulos */
+h1 {
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 2rem;
+}
+
+h2 {
+    color: var(--dark-red);
+    margin-top: 1rem;
+}
+
+/* Seções */
+main section {
+    width: 90%;
+    max-width: 30rem;
+    margin: 2rem auto;
+    border-radius: 0.8rem;
+    background-color: var(--white);
+    /*border: 0.3rem solid var(--section-border);*/
+    padding: 1rem;
+}
+
+/* Input e Container */
+.data-input {
+    padding-top: 1rem;
+}
+
+.data-input article {
+    width: 100%;
+    max-width: 20rem;
+    margin: 0 auto;
+}
+
+.data-input p {
+    margin-top: 2rem;
+}
+
+.data-input input {
+    width: 100%;
+    max-width: 20rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    padding: 0.3rem;
+    margin-top: 0.2rem;
+    font-size: var(--standar-font-size);
+    background-color: var(--input-background);
+    border: 0.2rem solid transparent;
+    transition: border-color 0.3s ease; /* Transição suave para hover */
+}
+
+.data-input input:hover {
+    border-color: var(--dark-red);
+}
+
+/* Botões */
+.button-container {
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+#btn, #clean_btn {
+    width: 100%;
+    max-width: 20rem;
+    height: 3rem;
+    background-color: var(--buttons-background);
+    color: var(--section-border);
+    font-weight: bold;
+    border-radius: 0.8rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+#btn {
+    margin-top: 4rem;
+}
+
+#btn:active {
+    background-color: var(--white);
+    border: 0.2rem solid var(--section-border);
+}
+
+#clean_btn {
+    margin-top: 2rem;
+}
+
+#clean_btn:active {
+    background-color: var(--white);
+}
+
+/* Resultados */
+.result-container {
+    min-height: 15rem;
+    margin: 4rem auto;
+    padding: 1rem;
+    background-color: var(--white);
+    border-radius: 0.8rem;
+}
+
+#result {
+    margin-top: 1rem;
+    background-color: var(--input-background);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    min-height: 8rem;
+}
+
+/* Seções de limpeza */
+.clean-section {
+    border: none;
+    background-color: var(--main-background);
+}
+
+.clean-button__container {
+    text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header {
+        grid-template-columns: 1fr; /* Ajusta o layout do header para dispositivos menores */
+    }
+
+    .data-input article {
+        width: 90%;
+    }
+
+    #btn, #clean_btn {
+        width: 100%;
+    }
+}
