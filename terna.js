@@ -1,6 +1,5 @@
-document.querySelectorAll('.side-input').forEach(input => {
-    input.addEventListener('input', calculateResult);
-});
+document.getElementById('calculate-btn').addEventListener('click', calculateResult);
+document.getElementById('clear-btn').addEventListener('click', clearFields);
 
 function calculateResult() {
     // Get values from inputs
@@ -30,4 +29,11 @@ function calculateResult() {
     } else {
         result.innerText = `Os valores ${side1}, ${side2} e ${side3} não formam uma terna pitagórica. O triângulo não é retângulo.`;
     }
+}
+
+function clearFields() {
+    document.getElementById('side1').value = '';
+    document.getElementById('side2').value = '';
+    document.getElementById('side3').value = '';
+    document.getElementById('result').innerText = '';
 }
